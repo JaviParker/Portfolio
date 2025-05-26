@@ -1,0 +1,38 @@
+/* From Uiverse.io by Siyu1017 */ 
+.button {
+    --color-2: #4079ff;
+    --color-1: #40ffaa;
+    --color-2-shadow: #4079ff23;
+    --color-1-shadow: #40ffaa23;
+    --color-2-shadow-focus: #4079ff67;
+    --color-1-shadow-focus: #40ffaa67;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 0;
+    font-size: 1rem;
+    background-image: linear-gradient(
+      to right bottom,
+      var(--color-1) 0%,
+      var(--color-2) 150%
+    );
+    box-shadow:
+      -4px -4px 16px 8px var(--color-1-shadow),
+      4px 4px 16px 8px var(--color-2-shadow);
+    transition: all 0.3s cubic-bezier(0.6, 0.12, 0.39, 0.83);
+  }
+  
+  .button:hover,
+  .button:active,
+  .button:focus,
+  .button:focus-visible,
+  .button:focus-within {
+    box-shadow:
+      -4px -4px 32px 2px var(--color-1-shadow-focus),
+      4px 4px 32px 2px var(--color-2-shadow-focus);
+  }
+  
+  .button:hover {
+    filter: contrast(1.10);
+  }
+  

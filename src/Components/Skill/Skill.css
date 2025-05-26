@@ -1,0 +1,9 @@
+.skill-badge{
+    transition: ease-in-out 0.2s;
+}
+
+.skill-badge:hover {
+    background: linear-gradient(90deg, #ffffffcc, #fcfcfcc9 80%);
+    box-shadow: 0 0 4px #fff172;
+    color: black;
+}
