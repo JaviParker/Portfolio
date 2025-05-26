@@ -40,7 +40,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   description,
   videoUrl,
   skills,
-  githubUrl,
 }) => {
   return (
     <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 p-6 rounded-2xl shadow-lg w-full max-w-6xl mx-auto">

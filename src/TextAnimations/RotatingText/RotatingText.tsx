@@ -22,6 +22,18 @@ function cn(...classes: (string | undefined | null | boolean)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
+// TypeScript declaration for Intl.Segmenter if not present
+declare global {
+  interface Intl {
+    Segmenter?: typeof Segmenter;
+  }
+  // Minimal Segmenter type definition for TypeScript
+  class Segmenter {
+    constructor(locales?: string | string[], options?: { granularity?: "grapheme" | "word" | "sentence" });
+    segment(input: string): Iterable<{ segment: string }>;
+  }
+}
+
 export interface RotatingTextRef {
   next: () => void;
   previous: () => void;
@@ -79,11 +91,11 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
     const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
 
     const splitIntoCharacters = (text: string): string[] => {
-      if (typeof Intl !== "undefined" && Intl.Segmenter) {
-        const segmenter = new Intl.Segmenter("en", { granularity: "grapheme" });
+      if (typeof Intl !== "undefined" && (Intl as any).Segmenter) {
+        const segmenter = new (Intl as any).Segmenter("en", { granularity: "grapheme" });
         return Array.from(
           segmenter.segment(text),
-          (segment) => segment.segment,
+          (segment: any) => segment.segment,
         );
       }
       return Array.from(text);
