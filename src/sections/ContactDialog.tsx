@@ -1,7 +1,7 @@
 "use client";
 
 import * as Dialog from "@radix-ui/react-dialog";
-import { Mail, Calendar, Linkedin, Github, Globe,  BriefcaseBusinessIcon } from "lucide-react";
+import { Mail, Calendar, Linkedin, Github, FileTextIcon } from "lucide-react";
 import { useContactDialog } from "../stores/useContactDialog";
 import Button from "../Components/Button/Button";
 import emailjs from "emailjs-com";
@@ -54,18 +54,18 @@ export function ContactDialog() {
 
             {/* Íconos sociales */}
             <div className="flex space-x-4 text-white">
-              <a href="https://www.linkedin.com/in/javier-martinez-isw/" target="_blank">
+              <a href="https://www.linkedin.com/in/javier-martinez-isw/" target="_blank" title="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="https://github.com/JaviParker" target="_blank">
+              <a href="https://github.com/JaviParker" target="_blank" title="GitHub">
                 <Github size={20} />
               </a>
-              <a href="https://twitter.com" target="_blank">
-                <BriefcaseBusinessIcon size={20} />
+              <a href="https://drive.google.com/file/d/1w1Qud6aGt6k9qxy-5QjWvIG5UzhEX3C4/view?usp=sharing" target="_blank" title="Curriculum Vitae">
+                <FileTextIcon size={20} />
               </a>
-              <a href="https://tuweb.com" target="_blank">
+              {/* <a href="https://tuweb.com" target="_blank">
                 <Globe size={20} />
-              </a>
+              </a> */}
             </div>
 
             {/* Botones de contacto rápido */}
