@@ -18,23 +18,14 @@ const AboutSection: React.FC = ({}) => {
   return (
     <section
       id="about"
-      className="shrink"
-      style={{
-        minHeight: "75vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "white",
-        zIndex: 5,
-      }}
+      className="w-full min-h-[75vh] flex flex-col justify-center items-center text-white z-5 p-4 mb-40"
     >
       {/* Cards resume */}
-      <div className="h-auto shrink px-4 md:px-8">
+      <div className="h-auto shrink px-4 w-full md:px-8">
         <div className="flex flex-col lg:flex-row w-full">
           <div className="md:basis-2/3 flex flex-col shrink gap-5 p-5">
             <SpotlightCard
-              className="card-spotlight max-w-260 w-auto h-auto"
+              className="card-spotlight max-w-260 left-0 w-100 mx-auto h-auto md:w-full"
               spotlightColor="rgba(0, 229, 255, 0.2)"
             >
               <ShinyText text="About me" className="text-2xl font-bold" />
@@ -81,7 +72,7 @@ const AboutSection: React.FC = ({}) => {
               {/* <Button label="Learn more" onClick={() => console.log('Button clicked')} />   */}
             </SpotlightCard>
             <SpotlightCard
-              className="card-spotlight max-w-260 w-auto h-auto"
+              className="card-spotlight max-w-260 left-0 w-100 mx-auto h-auto md:w-full"
               spotlightColor="rgba(64, 121, 255, 0.2)"
             >
               <ShinyText
@@ -105,9 +96,9 @@ const AboutSection: React.FC = ({}) => {
 
               {/* <Button label="Learn more" onClick={() => console.log('Button clicked')} />   */}
             </SpotlightCard>
-            <div className="flex flex-row basis-1/2 gap-5 max-h-40">
+            <div className="flex flex-col gap-5 basis-1/2 md:max-h-40 md:flex-row">
               <SpotlightCard
-                className="card-spotlight max-w-120 min-w-90 w-auto"
+                className="card-spotlight max-w-120 min-w-90 w-100 left-0 mx-auto h-auto md:w-full"
                 spotlightColor="rgba(255, 250, 215, 0.2)"
               >
                 <svg
@@ -124,13 +115,13 @@ const AboutSection: React.FC = ({}) => {
                 <ShinyText text="Education" className="text-2xl font-bold" />
                 <h5 className="text-sm mb-3">Software engineering</h5>
                 <p className="text-sm">
-                  I have a degree in software engineering from the Universidad
+                  I have a degree in software engineering at the Universidad
                   Politécnica de Durango.
                 </p>
                 {/* <Button label="Learn more" onClick={() => console.log('Button clicked')} />   */}
               </SpotlightCard>
               <SpotlightCard
-                className="card-spotlight max-w-120 min-w-80 w-auto"
+                className="card-spotlight max-w-120 min-w-80 w-100 left-0 mx-auto h-auto md:w-full"
                 spotlightColor="rgba(255, 250, 215, 0.2)"
               >
                 <div>
@@ -163,7 +154,7 @@ const AboutSection: React.FC = ({}) => {
               </SpotlightCard>
             </div>
           </div>
-          <div className="md:basis-1/3 shrink p-5 min-w-100">
+          <div className="w-100 left-0 mx-auto md:basis-1/3 md:w-full shrink min-w-100 md:p-5">
             <SpotlightCard
               className="card-spotlight min-w-50 w-full h-full"
               spotlightColor="rgba(195, 0, 255, 0.2)"

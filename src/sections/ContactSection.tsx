@@ -10,7 +10,7 @@ const ContactSection: React.FC = ({}) => {
   return (
     <section
       id="contact"
-      className="relative flex flex-col items-center justify-center px-4 py-10 text-center mb-8 md:px-8"
+      className="relative flex flex-col items-center justify-center px-4 py-10 text-center mb-8 md:px-8 md:w-full w-100 left-0 mx-auto"
     >
       {/* Globe sin fondo blanco */}
       <div className="relative flex w-full max-w-lg items-center justify-center overflow-hidden rounded-lg px-4 pb-20 pt-8 md:pb-32 bg-transparent">
@@ -57,7 +57,7 @@ const ContactSection: React.FC = ({}) => {
         <p className="font-semibold text-lg w-full">
           I&apos;m available for full-time roles, remote and hybrid.
         </p>
-        <p className="mt-1 text-gray-400 text-lg">
+        <p className="mt-1 text-gray-400 text-lg mb-30 md:mb-0">
           Adaptative, dedicated, enthusiastic and always trying to improve.
         </p>
       </div>

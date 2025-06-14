@@ -56,7 +56,7 @@ export default function ProjectDetailed({
 }: //   technologies,
 ProjectDetailedProps) {
   return (
-    <section id={id} className="px-4 mt-30 md:px-8 py-10 w-full max-w-[1450px]">
+    <section id={id} className="mt-5 md:px-8 md:py-10 w-full max-w-[1450px]">
       <div className="flex flex-col lg:flex-row w-full gap-5">
         {/* IZQUIERDA: cards informativas */}
         <div className="flex flex-col gap-5 md:basis-1/4">
@@ -66,7 +66,7 @@ ProjectDetailedProps) {
             <p className="text-sm">{description}</p>
           </SpotlightCard>
 
-          {/* PROBLEMA */}
+          {/* FEATURES */}
           <SpotlightCard spotlightColor="rgba(255, 215, 0, 0.2)">
             <ShinyText text="Features" className="text-xl font-bold mb-3" />
             <ol className="text-sm">
@@ -76,7 +76,7 @@ ProjectDetailedProps) {
             </ol>
           </SpotlightCard>
 
-          {/* SOLUCIÓN */}
+          {/* TECNOLOGIAS */}
           <SpotlightCard spotlightColor="rgba(64, 255, 170, 0.2)">
             <ShinyText text="Tecnologies" className="text-xl font-bold mb-3" />
             {/* Tecnologías utilizadas */}
@@ -102,14 +102,14 @@ ProjectDetailedProps) {
         </div>
 
         {/* CENTRO: Preview (Safari + Android), luego Features y Tech */}
-        <div className="flex flex-col gap-5 md:basis-3/4 h-full">
+        <div className="flex flex-col gap-5 md:basis-3/4 h-full w-100 left-0 mx-auto md:w-full">
           {/* PREVIEW CARD CON SAFARI + ANDROID */}
           {/* <ShinyText text="Preview" className="text-xl font-bold mb-3" /> */}
-          <div className="flex flex-col lg:flex-row gap-4 justify-center items-center mt-10">
+          <div className="flex flex-col lg:flex-row gap-4 mt-15">
             <div className="w-full lg:w-4/4">
-              <Safari videoSrc={videoUrl} className="w-200 h-100" />
+              <Safari videoSrc={videoUrl} className="w-100 h-60 md:w-200 md:h-100" />
             </div>
-            <div className="w-50 h-[300px] flex justify-center items-center mt-5">
+            <div className="w-80 md:w-50 left-0 ml-15 h-[390px] flex justify-center items-center mt-60 md:mt-5 mb-90 md:mb-0">
               {androidImageSrc ? (
                 <Android src={androidImageSrc} />
               ) : (
@@ -119,6 +119,7 @@ ProjectDetailedProps) {
           </div>
         </div>
       </div>
+      {/* <hr className="border-t border-white my-8 mt-50" /> */}
     </section>
   );
 }

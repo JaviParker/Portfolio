@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Toaster } from "sonner";
 import Navbar from "./Components/Navbar/Navbar";
@@ -9,8 +9,6 @@ import ContactSection from "./sections/ContactSection";
 import Background from "./sections/Background";
 
 function App() {
-  const radioRef = useRef<HTMLDivElement>(null);
-  const navbarRef = useRef<HTMLDivElement>(null);
   const [radioFixed, setRadioFixed] = useState(false);
   const radioOptions = ["Work", "About", "Projects", "Contact"];
   const [,setSelectedRadio] = useState(radioOptions[0]);
@@ -92,8 +90,6 @@ function App() {
           radioFixed={radioFixed}
           sectionIds={sectionIds}
           activeSection={activeSection}
-          navbarRef={navbarRef}
-          radioRef={radioRef}
         />
         {/* WORk */}
         <WorkSection />

@@ -8,109 +8,85 @@ function Navbar({
   radioFixed,
   sectionIds,
   activeSection,
-  navbarRef,
-  radioRef,
 }: {
   radioFixed: boolean;
   sectionIds: string[];
   activeSection: string;
-  navbarRef: React.RefObject<HTMLDivElement | null>;
-  radioRef: React.RefObject<HTMLDivElement | null>;
+  // navbarRef: React.RefObject<HTMLDivElement | null>;
+  // radioRef: React.RefObject<HTMLDivElement | null>;
 }) {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const handleMobileMenuToggle = () => setMobileMenuOpen(!isMobileMenuOpen);
+  const { openDialog } = useContactDialog();
 
-  const {openDialog} = useContactDialog();
   return (
+    // Contenedor principal del Navbar
     <div
-      ref={navbarRef}
-      style={{
-        position: "fixed",
-        width: "98vw",
-        top: radioFixed ? "10px" : "20px",
-        zIndex: radioFixed ? 6 : 7,
-        padding: "0 20px",
-        margin: "0 1vw 0 1vw",
-        height: "70px",
-        backdropFilter: radioFixed ? "blur(10px)" : "none",
-        background: radioFixed ? "rgba(255, 255, 255, 0.1)" : "transparent",
-        borderRadius: "15px",
-        boxShadow: radioFixed ? "0 4px 10px rgba(0, 0, 0, 0.1)" : "none",
-        transition: "all 0.3s ease-in-out",
-      }}
-      className="relative flex items-center"
+      className={`fixed top-0 left-0 z-50 mx-2 w-[96%] md:w-[98%] transition-all duration-300 ease-in-out ${
+        radioFixed
+          ? "top-2.5 backdrop-blur-md bg-white/10 shadow-lg"
+          : "top-5 bg-transparent"
+      } rounded-xl`}
     >
-      {/* Izquierda: Título y RotatingText */}
-      <div className="flex items-center">
-        <strong className="mr-1 text-xl text-white">Creative</strong>
-        <RotatingText
-          texts={[
-            "thinker",
-            "designer",
-            "developer",
-            "problem solver",
-            "engineer",
-            "innovator",
-            "learner",
-          ]}
-          mainClassName="px-2 sm:px-2 md:px-3 bg-duo text-white py-0.5 sm:py-1 md:py-2 justify-center rounded-lg text-xl"
-          staggerFrom="last"
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "-120%" }}
-          staggerDuration={0.025}
-          splitLevelClassName="pb-0.5 sm:pb-1 md:pb-1 text-black font-bold"
-          transition={{ type: "spring", damping: 30, stiffness: 400 }}
-          rotationInterval={2000}
-        />
+      <div className="relative flex items-center justify-between h-[70px] px-5">
+        {/* Izquierda: Título y RotatingText */}
+        <div className="flex items-center">
+          <strong className="text-white text-lg md:text-xl mr-1">Creative</strong>
+          <RotatingText
+             texts={["thinker", "designer", "developer", "problem solver", "engineer", "innovator", "learner"]}
+             // Clases responsivas para el padding y tamaño de texto
+             mainClassName="px-2 md:px-3 py-1 md:py-2 bg-duo text-white rounded-lg text-lg md:text-xl flex justify-center items-center"
+             staggerFrom="last"
+             initial={{ y: "100%" }}
+             animate={{ y: 0 }}
+             exit={{ y: "-120%" }}
+             staggerDuration={0.025}
+             // Clase responsiva para el texto interno
+             splitLevelClassName="pb-0.5 md:pb-1 text-black font-bold"
+             transition={{ type: "spring", damping: 30, stiffness: 400 }}
+             rotationInterval={2000}
+          />
+        </div>
+
+        {/* Centro: Radio (solo en desktop) */}
+        <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Radio
+            className="flex space-x-2 rounded-xl select-none h-10"
+            options={sectionIds}
+            selected={activeSection}
+            onChange={(section) => {
+              document.getElementById(section)?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
+          />
+        </div>
+
+        {/* Derecha: Botón "Contact me" (solo en desktop) */}
+        <div className="hidden md:block">
+          <Button label="Contact me" onClick={openDialog} />
+        </div>
+
+        {/* Móvil: Menú hamburguesa */}
+        <div className="md:hidden">
+          <button onClick={handleMobileMenuToggle} className="text-white focus:outline-none">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8h16M4 16h16" />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* Centro: Radio (desktop) posicionado absolutamente */}
-      <div
-        ref={radioRef}
-        className="hidden md:block absolute left-1/2 transform -translate-x-1/2 mb-3"
-      >
-        <Radio
-          className="flex space-x-2 rounded-xl select-none h-10 mt-3 z-7"
-          options={sectionIds}
-          selected={activeSection}
-          onChange={(activeSection) => {
-            console.log(activeSection);
-            document.getElementById(activeSection)?.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }}
-        />
-      </div>
-
-      {/* Derecha: Botón "Contact me" (desktop) posicionado absolutamente */}
-      <div className="hidden md:block absolute right-5">
-        <Button label="Contact me" onClick={openDialog} />
-      </div>
-
-      {/* Móvil: Menú hamburguesa en la derecha */}
-      <div className="md:hidden absolute right-0 flex items-center">
-        <button onClick={handleMobileMenuToggle} className="text-white focus:outline-none">
-          <svg
-            className="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8h16M4 16h16" />
-          </svg>
-        </button>
-        {isMobileMenuOpen && (
-          <div className="absolute top-full right-0 mt-2 bg-white rounded shadow-lg p-4 z-50">
+      {/* Menú desplegable para móvil */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-black/80 backdrop-blur-lg rounded-b-lg p-4">
+          <div className="flex flex-col items-center space-y-4">
             {sectionIds.map((section) => (
               <div
                 key={section}
-                className="py-1 cursor-pointer hover:bg-gray-200"
+                className="py-2 cursor-pointer text-white text-lg hover:text-duo transition-colors"
                 onClick={() => {
-                  console.log(section);
                   document.getElementById(section)?.scrollIntoView({
                     behavior: "smooth",
                     block: "start",
@@ -118,12 +94,18 @@ function Navbar({
                   setMobileMenuOpen(false);
                 }}
               >
-                {section}
+                {/* Capitaliza la primera letra para mejor presentación */}
+                {section.charAt(0).toUpperCase() + section.slice(1)}
               </div>
             ))}
+            {/* También puedes añadir el botón de contacto aquí */}
+            <Button label="Contact me" onClick={() => {
+                openDialog();
+                setMobileMenuOpen(false);
+            }} />
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
