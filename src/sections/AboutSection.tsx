@@ -115,7 +115,7 @@ const AboutSection: React.FC = ({}) => {
                 <ShinyText text="Education" className="text-2xl font-bold" />
                 <h5 className="text-sm mb-3">Software engineering</h5>
                 <p className="text-sm">
-                  I have a degree in software engineering at the Universidad
+                  A bachelor's degree in software engineering at the Universidad
                   Politécnica de Durango.
                 </p>
                 {/* <Button label="Learn more" onClick={() => console.log('Button clicked')} />   */}
@@ -144,7 +144,7 @@ const AboutSection: React.FC = ({}) => {
                   className="text-2xl font-bold mb-5"
                 />
                 <div className="flex flex-wrap gap-2 mb-5">
-                  <Skill label="English B1" icon="" />
+                  <Skill label="English B2" icon="" />
                   <Skill label="SOLID" icon="" />
                   <Skill label="Teamwork" icon="" />
                   <Skill label="Agile Metodologies" icon="" />
