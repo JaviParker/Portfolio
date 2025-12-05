@@ -49,6 +49,8 @@ const SkillsGroup: React.FC<SkillsGroupProps> = ({ }) => {
         icon="devicon-sonarqube-plain colored"
         />
         <Skill label="Figma" icon="devicon-figma-plain colored" />
+        <Skill label="Shopify" icon="devicon-sanity-plain" />
+        <Skill label="GraphQL" icon="devicon-graphql-plain-wordmark colored" />
     </div>
    );
 };

@@ -17,16 +17,7 @@ const ProjectsSection: React.FC = () => {
         // `p-4` para el padding en móvil y `md:p-8` para más padding en desktop.
         className="relative z-5 w-100 left-0 mx-auto md:w-full min-h-[75vh] flex flex-col justify-center items-center text-white md:p-8 space-y-16 md:space-y-24"
       >
-        <ProjectDetailed
-          id="dif"
-          name={"Cars administration"}
-          description={"Was a project where we improve the way how them managed the organization vehicles data"}
-          features={["Api create and use", "Multi-data management", "Efficient design"]}
-          skills={["Laravel", "Bootstrap CSS", "JavaScript", "MySQL"]}
-          videoUrl="/DIF1.mov"
-          androidImageSrc="/assets/DIF1_Mobile.png"
-          repoUrl="https://github.com/JaviParker/vehiculos-dif"
-        />
+
         <ProjectDetailed
           id="paez"
           name={"Paez logistics"}
@@ -37,6 +28,29 @@ const ProjectsSection: React.FC = () => {
           androidVideoSrc="/assets/Paez_vertical.mp4"
           repoUrl="https://github.com/JaviParker/RutasQ"
         />
+
+        <ProjectDetailed
+          id="jinsa"
+          name={"JINSA Industrial Instruments"}
+          description={"An ecommerce to sell industrial instruments developed in Shopify and improved with automations workflows, graphql bulk updates, SEO optimizations and marketing integrations"}
+          features={["N8N workflows for automation", "GraphQL bulk updates", "SEO optimizations", "Google Tag Manager", "Google Merchant Center", "Google Analytics"]}
+          skills={["n8n", "Google Ads and marketing tools", "Liquid", "GraphQL", "Pixels", "VPS Servers", "Kommo CRM", "Microsip ERP"]}
+          videoUrl="/assets/Jinsa.mp4"
+          androidImageSrc="/assets/Jinsa.jpg"
+          repoUrl="https://www.jinsa.com.mx"
+        />
+
+        <ProjectDetailed
+          id="dif"
+          name={"Cars administration"}
+          description={"Was a project where we improve the way how them managed the organization vehicles data"}
+          features={["Api create and use", "Multi-data management", "Efficient design"]}
+          skills={["Laravel", "Bootstrap CSS", "JavaScript", "MySQL"]}
+          videoUrl="/DIF1.mov"
+          androidImageSrc="/assets/DIF1_Mobile.png"
+          repoUrl="https://github.com/JaviParker/vehiculos-dif"
+        />
+        
         <ProjectDetailed
           id="militapp"
           name={"MilitApp"}
